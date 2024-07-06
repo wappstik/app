@@ -6,35 +6,65 @@ ColorScheme colorScheme =
 
 final ThemeData themeData = ThemeData.light().copyWith(
     colorScheme: colorScheme,
-    textTheme: const TextTheme(
-      displayLarge:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.bold),
-      displayMedium:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.bold),
-      displaySmall:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.bold),
-      headlineLarge:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.bold),
-      headlineMedium:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.bold),
-      headlineSmall:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.bold),
-      titleLarge:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.bold),
-      titleMedium:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.normal),
-      titleSmall:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.normal),
-      bodyLarge:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.normal),
-      bodyMedium:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.normal),
-      bodySmall:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.normal),
-      labelLarge:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.normal),
-      labelMedium:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.normal),
-      labelSmall:
-          TextStyle(fontFamily: 'Maison Neue', fontWeight: FontWeight.normal),
+    textTheme: TextTheme(
+      displayLarge: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.bold,
+          color: WappstikPalette.textGrey),
+      displayMedium: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.bold,
+          color: WappstikPalette.textGrey),
+      displaySmall: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.bold,
+          color: WappstikPalette.textGrey),
+      headlineLarge: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.bold,
+          color: WappstikPalette.textGrey),
+      headlineMedium: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.bold,
+          color: WappstikPalette.textGrey),
+      headlineSmall: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.bold,
+          color: WappstikPalette.textGrey),
+      titleLarge: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.bold,
+          color: WappstikPalette.textGrey),
+      titleMedium: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.normal,
+          color: WappstikPalette.textGrey),
+      titleSmall: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.normal,
+          color: WappstikPalette.textGrey),
+      bodyLarge: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.normal,
+          color: WappstikPalette.textGrey),
+      bodyMedium: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.normal,
+          color: WappstikPalette.textGrey),
+      bodySmall: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.normal,
+          color: WappstikPalette.textGrey),
+      labelLarge: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.normal,
+          color: WappstikPalette.textGrey),
+      labelMedium: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.normal,
+          color: WappstikPalette.textGrey),
+      labelSmall: TextStyle(
+          fontFamily: 'Maison Neue',
+          fontWeight: FontWeight.normal,
+          color: WappstikPalette.textGrey),
     ));
