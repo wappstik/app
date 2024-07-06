@@ -89,3 +89,36 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Maison Neue
+      fonts:
+        - asset: assets/fonts/Maison Neue/MaisonNeue-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Maison Neue/MaisonNeue-BoldItalic.ttf
+          style: italic
+          weight: 700
+        - asset: assets/fonts/Maison Neue/MaisonNeue-Book.ttf
+          weight: 400
+        - asset: assets/fonts/Maison Neue/MaisonNeue-BookItalic.ttf
+          style: italic
+          weight: 400
+        - asset: assets/fonts/Maison Neue/MaisonNeue-Demi.ttf
+          weight: 600
+        - asset: assets/fonts/Maison Neue/MaisonNeue-DemiItalic.ttf
+          style: italic
+          weight: 600
+        - asset: assets/fonts/Maison Neue/MaisonNeue-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Maison Neue/MaisonNeue-LightItalic.ttf
+          style: italic
+          weight: 300
+        - asset: assets/fonts/Maison Neue/MaisonNeue-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Maison Neue/MaisonNeue-MediumItalic.ttf
+          style: italic
+          weight: 500
+    - family: Maison Neue Mono
+      fonts:
+        - asset: assets/fonts/Maison Neue/MaisonNeue-Mono.ttf
+        - asset: assets/fonts/Maison Neue/MaisonNeue-MonoItalic.ttf
+          style: italic
