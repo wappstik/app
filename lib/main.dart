@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wappstik/pages/auth/login.dart';
+import 'package:wappstik/pages/welcome.dart';
 import 'package:wappstik/providers/user.dart';
 import 'package:wappstik/themes.dart';
 
@@ -17,8 +18,12 @@ class MainApp extends StatelessWidget {
       providers: [ChangeNotifierProvider(create: (_) => UserProvider())],
       child: MaterialApp(
         theme: themeData,
-        routes: {'/login': (context) => const LoginPages()},
-        initialRoute: '/login',
+        debugShowCheckedModeBanner: false,
+        routes: {
+          '/login': (context) => const LoginPages(),
+          '/welcome': (context) => const WelcomePages()
+        },
+        initialRoute: '/welcome',
       ),
     );
   }
