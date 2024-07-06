@@ -14,7 +14,7 @@ class WelcomePages extends StatelessWidget {
           padding: const EdgeInsets.all(30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SvgPicture.asset(
                 'assets/svgs/illustration/welcome.svg',
@@ -26,6 +26,7 @@ class WelcomePages extends StatelessWidget {
               ),
               Text(
                 "Welcome to WappStik!",
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(
