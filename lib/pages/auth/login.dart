@@ -16,6 +16,8 @@ class _LoginPagesState extends State<LoginPages> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  void loginAction() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,13 +65,32 @@ class _LoginPagesState extends State<LoginPages> {
               const SizedBox(
                 height: 20,
               ),
-              ButtonComponent(text: "Login", onPressed: () {}, backgroundColor: WappstikPalette.purple,),
-              const SizedBox(height: 20,),
+              ButtonComponent(
+                text: "Login",
+                onPressed: () {},
+                backgroundColor: WappstikPalette.purple,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't have an account? ", style: Theme.of(context).textTheme.bodyMedium,),
-                  GestureDetector(child: Text("Sign up", style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: WappstikPalette.purple),),)
+                  Text(
+                    "Don't have an account? ",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  GestureDetector(
+                    onTap: () =>
+                        Navigator.of(context).pushReplacementNamed('/register'),
+                    child: Text(
+                      "Sign up",
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(color: WappstikPalette.purple),
+                    ),
+                  )
                 ],
               )
             ],
