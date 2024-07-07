@@ -29,6 +29,7 @@ class InputComponent extends StatelessWidget {
         style: Theme.of(context).textTheme.bodyMedium,
         keyboardType: keyboardType,
         textInputAction: TextInputAction.next,
+        controller: controller,
         decoration: InputDecoration(
             suffixIcon: hasSuffix ? suffixAction : null,
             prefixIcon: Icon(
