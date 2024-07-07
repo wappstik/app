@@ -42,7 +42,7 @@ class WelcomePages extends StatelessWidget {
               ),
               ButtonComponent(
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed('/login');
+                  Navigator.of(context).pushReplacementNamed('/register');
                 },
                 text: "Get Started",
                 backgroundColor: WappstikPalette.purple,
