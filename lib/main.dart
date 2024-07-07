@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wappstik/pages/auth/login.dart';
+import 'package:wappstik/pages/auth/register.dart';
 import 'package:wappstik/pages/welcome.dart';
 import 'package:wappstik/providers/user.dart';
 import 'package:wappstik/themes.dart';
@@ -21,7 +22,8 @@ class MainApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routes: {
           '/login': (context) => const LoginPages(),
-          '/welcome': (context) => const WelcomePages()
+          '/welcome': (context) => const WelcomePages(),
+          '/register': (context) => const RegisterPages()
         },
         initialRoute: '/welcome',
       ),
