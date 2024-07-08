@@ -39,9 +39,13 @@ class InputComponent extends StatelessWidget {
               icon,
               color: WappstikPalette.grey,
             ),
+            errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 1, color: WappstikPalette.grey)),
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(width: 1, color: WappstikPalette.grey)),
             focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 1, color: WappstikPalette.grey)),
+            focusedErrorBorder: OutlineInputBorder(
                 borderSide: BorderSide(width: 1, color: WappstikPalette.grey)),
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.bodyMedium));
