@@ -141,6 +141,7 @@ class _RegisterPagesState extends State<RegisterPages> {
                     ),
                     ButtonComponent(
                       text: isLoading ? 'Please wait...' : 'Register',
+                      isDisabled: isLoading,
                       onPressed: () async {
                         await register(context);
                       },
