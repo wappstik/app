@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   provider: ^6.1.2
   flutter_svg: ^2.0.10+1
+  http: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
   assets:
     - assets/svgs/illustration/welcome.svg
     - assets/svgs/illustration/auth.svg
+    - assets/svgs/illustration/fill_form.svg
       # An image asset can refer to one or more resolution-specific "variants", see
       # https://flutter.dev/assets-and-images/#resolution-aware
 
@@ -88,7 +90,7 @@ flutter:
       #     fonts:
       #       - asset: fonts/TrajanPro.ttf
       #       - asset: fonts/TrajanPro_Bold.ttf
-      #         weight: 700
+    #         weight: 700
     #
     # For details regarding fonts from package dependencies,
     # see https://flutter.dev/custom-fonts/#from-packages
