@@ -16,7 +16,7 @@ class RegisterPages extends StatefulWidget {
 
 class _RegisterPagesState extends State<RegisterPages> {
   final _formKey = GlobalKey<FormState>();
-  AuthService auth = const AuthService();
+  AuthService auth = AuthService();
 
   bool isSecure = true;
   bool isLoading = false;
@@ -65,7 +65,7 @@ class _RegisterPagesState extends State<RegisterPages> {
             builder: (BuildContext context) {
               return ModalSuccessWidget(
                   description:
-                      "Congratulations! Your registration was successful.",
+                  "Congratulations! Your registration was successful.",
                   actionText: "Login",
                   onPressed: () {
                     Navigator.of(context).pushReplacementNamed('/login');
@@ -155,14 +155,19 @@ class _RegisterPagesState extends State<RegisterPages> {
                       children: [
                         Text(
                           "Already have an account? ",
-                          style: Theme.of(context).textTheme.bodyMedium,
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .bodyMedium,
                         ),
                         GestureDetector(
-                          onTap: () => Navigator.of(context)
-                              .pushReplacementNamed('/login'),
+                          onTap: () =>
+                              Navigator.of(context)
+                                  .pushReplacementNamed('/login'),
                           child: Text(
                             "Sign in",
-                            style: Theme.of(context)
+                            style: Theme
+                                .of(context)
                                 .textTheme
                                 .bodyMedium
                                 ?.copyWith(color: WappstikPalette.purple),
