@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:http/http.dart';
 import 'package:wappstik/components/button.dart';
 import 'package:wappstik/components/input.dart';
 import 'package:wappstik/constants.dart';
+import 'package:wappstik/service/auth.dart';
+import 'package:wappstik/widgets/modals/error.dart';
 
 class LoginPages extends StatefulWidget {
   const LoginPages({super.key});
@@ -12,11 +15,56 @@ class LoginPages extends StatefulWidget {
 }
 
 class _LoginPagesState extends State<LoginPages> {
+  final _formKey = GlobalKey<FormState>();
+  AuthService auth = AuthService();
+
   bool isSecure = true;
-  TextEditingController usernameController = TextEditingController();
+  bool isLoading = false;
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  void loginAction() {}
+  String? _validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Email cannot be empty';
+    }
+    final emailRegExp = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+    if (!emailRegExp.hasMatch(value)) {
+      return 'Enter a valid email';
+    }
+    return null;
+  }
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Password cannot be empty';
+    }
+    if (value.length < 4) {
+      return 'Password must be at least 4 characters';
+    }
+    return null;
+  }
+
+  Future<void> login(BuildContext context) async {
+    setState(() {
+      isLoading = true;
+    });
+    if (_formKey.currentState?.validate() ?? false) {
+      Response response = await auth.login(
+          emailController.text.toString(), passwordController.text.toString());
+      if (response.statusCode == 200) {
+      } else if (response.statusCode == 401) {
+        showModalBottomSheet(
+            context: context,
+            builder: (BuildContext context) {
+              return ModalErrorWidget(
+                  description: 'Wrong email or password',
+                  onPressed: () {
+                    Navigator.pop(context);
+                  });
+            });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +88,7 @@ class _LoginPagesState extends State<LoginPages> {
               InputComponent(
                   icon: Icons.email,
                   hintText: "Enter your email",
-                  controller: usernameController),
+                  controller: emailController),
               const SizedBox(
                 height: 20,
               ),
