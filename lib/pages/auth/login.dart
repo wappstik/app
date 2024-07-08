@@ -81,79 +81,81 @@ class _LoginPagesState extends State<LoginPages> {
       child: Padding(
         padding: const EdgeInsets.all(30),
         child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                'assets/svgs/illustration/auth.svg',
-                width: 150,
-                height: 150,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              InputComponent(
-                  icon: Icons.email,
-                  hintText: "Enter your email",
-                  validator: _validateEmail,
-                  controller: emailController),
-              const SizedBox(
-                height: 20,
-              ),
-              InputComponent(
-                icon: Icons.lock,
-                hintText: "Enter your password",
-                controller: passwordController,
-                isSecure: isSecure,
-                hasSuffix: true,
-                validator: _validatePassword,
-                suffixAction: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      isSecure = !isSecure;
-                    });
-                  },
-                  icon: Icon(
-                    isSecure ? Icons.visibility : Icons.visibility_off,
-                    color: WappstikPalette.grey,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  'assets/svgs/illustration/auth.svg',
+                  width: 150,
+                  height: 150,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                InputComponent(
+                    icon: Icons.email,
+                    hintText: "Enter your email",
+                    validator: _validateEmail,
+                    controller: emailController),
+                const SizedBox(
+                  height: 20,
+                ),
+                InputComponent(
+                  icon: Icons.lock,
+                  hintText: "Enter your password",
+                  controller: passwordController,
+                  isSecure: isSecure,
+                  hasSuffix: true,
+                  validator: _validatePassword,
+                  suffixAction: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isSecure = !isSecure;
+                      });
+                    },
+                    icon: Icon(
+                      isSecure ? Icons.visibility : Icons.visibility_off,
+                      color: WappstikPalette.grey,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              ButtonComponent(
-                text: "Login",
-                onPressed: () async {
-                  await login(context);
-                },
-                backgroundColor: WappstikPalette.purple,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account? ",
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  GestureDetector(
-                    onTap: () =>
-                        Navigator.of(context).pushReplacementNamed('/register'),
-                    child: Text(
-                      "Sign up",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(color: WappstikPalette.purple),
+                const SizedBox(
+                  height: 20,
+                ),
+                ButtonComponent(
+                  text: "Login",
+                  onPressed: () async {
+                    await login(context);
+                  },
+                  backgroundColor: WappstikPalette.purple,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don't have an account? ",
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                  )
-                ],
-              )
-            ],
+                    GestureDetector(
+                      onTap: () => Navigator.of(context)
+                          .pushReplacementNamed('/register'),
+                      child: Text(
+                        "Sign up",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: WappstikPalette.purple),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
