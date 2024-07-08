@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart';
+import 'package:session_manager/session_manager.dart';
 import 'package:wappstik/components/button.dart';
 import 'package:wappstik/components/input.dart';
 import 'package:wappstik/constants.dart';
@@ -52,6 +55,11 @@ class _LoginPagesState extends State<LoginPages> {
       Response response = await auth.login(
           emailController.text.toString(), passwordController.text.toString());
       if (response.statusCode == 200) {
+        final data = jsonDecode(response.body.toString());
+        SessionManager().setString('isLogged', 'true');
+        SessionManager().setString('name', data['name']);
+        SessionManager().setString('token', data['token']);
+        Navigator.of(context).pushReplacementNamed('/home');
       } else if (response.statusCode == 401) {
         showModalBottomSheet(
             context: context,
@@ -88,6 +96,7 @@ class _LoginPagesState extends State<LoginPages> {
               InputComponent(
                   icon: Icons.email,
                   hintText: "Enter your email",
+                  validator: _validateEmail,
                   controller: emailController),
               const SizedBox(
                 height: 20,
@@ -98,6 +107,7 @@ class _LoginPagesState extends State<LoginPages> {
                 controller: passwordController,
                 isSecure: isSecure,
                 hasSuffix: true,
+                validator: _validatePassword,
                 suffixAction: IconButton(
                   onPressed: () {
                     setState(() {
@@ -115,7 +125,9 @@ class _LoginPagesState extends State<LoginPages> {
               ),
               ButtonComponent(
                 text: "Login",
-                onPressed: () {},
+                onPressed: () async {
+                  await login(context);
+                },
                 backgroundColor: WappstikPalette.purple,
               ),
               const SizedBox(
