@@ -10,6 +10,7 @@ class InputComponent extends StatelessWidget {
   final bool isSecure;
   final bool hasSuffix;
   final IconButton? suffixAction;
+  final String? Function(String?)? validator;
 
   const InputComponent(
       {super.key,
@@ -20,7 +21,8 @@ class InputComponent extends StatelessWidget {
       this.textInputAction = TextInputAction.send,
       this.isSecure = false,
       this.hasSuffix = false,
-      this.suffixAction});
+      this.suffixAction,
+      this.validator});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class InputComponent extends StatelessWidget {
         keyboardType: keyboardType,
         textInputAction: TextInputAction.next,
         controller: controller,
+        validator: validator,
         decoration: InputDecoration(
             suffixIcon: hasSuffix ? suffixAction : null,
             prefixIcon: Icon(
