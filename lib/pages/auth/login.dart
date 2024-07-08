@@ -78,10 +78,12 @@ class _LoginPagesState extends State<LoginPages> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(30),
-        child: Center(
-          child: SingleChildScrollView(
+            child: Padding(
+      padding: const EdgeInsets.all(30),
+      child: Center(
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -159,6 +161,6 @@ class _LoginPagesState extends State<LoginPages> {
           ),
         ),
       ),
-    ));
+    )));
   }
 }
