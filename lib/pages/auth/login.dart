@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart';
-import 'package:session_manager/session_manager.dart';
 import 'package:wappstik/components/button.dart';
 import 'package:wappstik/components/input.dart';
 import 'package:wappstik/constants.dart';
@@ -19,6 +19,8 @@ class LoginPages extends StatefulWidget {
 
 class _LoginPagesState extends State<LoginPages> {
   final _formKey = GlobalKey<FormState>();
+  final GetStorage box = GetStorage();
+
   AuthService auth = AuthService();
 
   bool isSecure = true;
@@ -56,9 +58,9 @@ class _LoginPagesState extends State<LoginPages> {
           emailController.text.toString(), passwordController.text.toString());
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body.toString());
-        SessionManager().setString('isLogged', 'true');
-        SessionManager().setString('name', data['name']);
-        SessionManager().setString('token', data['token']);
+        box.write('isLogged', 'true');
+        box.write('name', data['name']);
+        box.write('token', data['token']);
         Navigator.of(context).pushReplacementNamed('/home');
       } else if (response.statusCode == 401) {
         showModalBottomSheet(
