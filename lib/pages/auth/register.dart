@@ -24,6 +24,13 @@ class _RegisterPagesState extends State<RegisterPages> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  String? _validateName(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Name cannot be empty';
+    }
+    return null;
+  }
+
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Email cannot be empty';
@@ -31,6 +38,16 @@ class _RegisterPagesState extends State<RegisterPages> {
     final emailRegExp = RegExp(r'^[^@]+@[^@]+\.[^@]+');
     if (!emailRegExp.hasMatch(value)) {
       return 'Enter a valid email';
+    }
+    return null;
+  }
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Password cannot be empty';
+    }
+    if (value.length < 4) {
+      return 'Password must be at least 4 characters';
     }
     return null;
   }
@@ -87,6 +104,7 @@ class _RegisterPagesState extends State<RegisterPages> {
                     InputComponent(
                         icon: Icons.account_circle,
                         hintText: "Enter your full name",
+                        validator: _validateName,
                         controller: nameController),
                     const SizedBox(
                       height: 20,
@@ -105,6 +123,7 @@ class _RegisterPagesState extends State<RegisterPages> {
                       controller: passwordController,
                       isSecure: isSecure,
                       hasSuffix: true,
+                      validator: _validatePassword,
                       suffixAction: IconButton(
                         onPressed: () {
                           setState(() {
@@ -121,7 +140,7 @@ class _RegisterPagesState extends State<RegisterPages> {
                       height: 20,
                     ),
                     ButtonComponent(
-                      text: isLoading ? 'Please wait' : 'Register',
+                      text: isLoading ? 'Please wait...' : 'Register',
                       onPressed: () async {
                         await register(context);
                       },
