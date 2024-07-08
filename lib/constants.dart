@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const String baseurl = 'http://192.168.18.125';
+const String baseUrl = 'http://192.168.18.125';
 
 class WappstikPalette {
   static Color green = const Color.fromARGB(255, 69, 170, 74);
