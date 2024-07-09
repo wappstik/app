@@ -12,4 +12,5 @@ class WappstikPalette {
   static Color bgBottomBar = const Color(0xffc9c8d5);
   static Color textGrey = const Color(0xff78818b);
   static Color purple = const Color(0xff603ffe);
+  static Color black45 = Colors.black45;
 }
