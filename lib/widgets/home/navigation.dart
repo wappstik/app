@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:wappstik/constants.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
-  const BottomNavigationBarWidget({super.key});
+  final Function(int) onTabChanged;
+
+  const BottomNavigationBarWidget({super.key, required this.onTabChanged});
 
   @override
   State<BottomNavigationBarWidget> createState() =>
@@ -12,12 +14,6 @@ class BottomNavigationBarWidget extends StatefulWidget {
 
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   int currentSelectedIndex = 0;
-
-  void _onTapped(int index) {
-    setState(() {
-      currentSelectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +29,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
           setState(() {
             currentSelectedIndex = position;
           });
+          widget.onTabChanged(position);
         });
   }
 }
