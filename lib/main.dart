@@ -18,6 +18,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final box = GetStorage();
+    final isLogged = box.read('isLogged');
+    debugPrint(isLogged);
+
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => UserProvider())],
       child: MaterialApp(
@@ -26,9 +30,10 @@ class MainApp extends StatelessWidget {
         routes: {
           '/login': (context) => const LoginPages(),
           '/welcome': (context) => const WelcomePages(),
-          '/register': (context) => const RegisterPages()
+          '/register': (context) => const RegisterPages(),
+          '/home': (context) => const HomePages()
         },
-        initialRoute: '/welcome',
+        initialRoute: isLogged == 'true' ? '/home' : '/welcome',
       ),
     );
   }
