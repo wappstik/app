@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wappstik/widgets/home/floation.dart';
 import 'package:wappstik/widgets/home/navigation.dart';
 
 class HomePages extends StatelessWidget {
@@ -8,8 +7,6 @@ class HomePages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      floatingActionButton: FloationButtonwidget(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavigationBarWidget(),
     );
   }
