@@ -1,3 +1,4 @@
+import 'package:fancy_bottom_navigation_2/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:wappstik/constants.dart';
 
@@ -20,25 +21,18 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomAppBar(
-      shape: const CircularNotchedRectangle(),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.home,
-                color: WappstikPalette.purple,
-              )),
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.settings,
-                color: WappstikPalette.black45,
-              ))
+    return FancyBottomNavigation(
+        circleColor: WappstikPalette.purple,
+        inactiveIconColor: WappstikPalette.black45,
+        tabs: [
+          TabData(iconData: Icons.home, title: 'Home'),
+          TabData(iconData: Icons.search, title: 'Search'),
+          TabData(iconData: Icons.settings, title: 'Settings')
         ],
-      ),
-    );
+        onTabChangedListener: (position) {
+          setState(() {
+            currentSelectedIndex = position;
+          });
+        });
   }
 }
